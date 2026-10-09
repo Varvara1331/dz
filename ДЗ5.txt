@@ -1,0 +1,16 @@
+function getChange(amount, coins) {
+  coins.sort((a, b) => b - a);
+
+  const result = [];
+
+  for (const coin of coins) {
+    while (amount >= coin) {
+      result.push(coin);
+      amount -= coin;
+    }
+  }
+  return amount === 0 ? result : null;
+}
+
+const coins = [1, 5, 10, 25, 50];
+console.log(getChange(93, coins));
